@@ -382,9 +382,17 @@ function SortableToolCard({
   );
 }
 
+interface KakaoUser {
+  id: number;
+  email: string;
+  nickname: string;
+  profileImage: string;
+}
+
 export default function DashboardPage() {
   const router = useRouter();
   const [user, setUser] = useState<FirebaseUser | null>(null);
+  const [kakaoUser, setKakaoUser] = useState<KakaoUser | null>(null);
   const [loading, setLoading] = useState(true);
   const [demoMode, setDemoMode] = useState(false);
   const [isAdminUser, setIsAdminUser] = useState(false);
@@ -625,6 +633,16 @@ export default function DashboardPage() {
       return;
     }
 
+    // 카카오 로그인 확인
+    const isKakaoLoggedIn = localStorage.getItem("isKakaoLoggedIn");
+    const kakaoUserData = localStorage.getItem("kakaoUser");
+
+    if (isKakaoLoggedIn === "true" && kakaoUserData) {
+      setKakaoUser(JSON.parse(kakaoUserData));
+      setLoading(false);
+      return;
+    }
+
     // Firebase 인증 상태 확인
     const unsubscribe = onAuthStateChanged(auth, (firebaseUser) => {
       if (firebaseUser) {
@@ -643,6 +661,14 @@ export default function DashboardPage() {
     if (isAdminUser) {
       localStorage.removeItem("isAdminLoggedIn");
       localStorage.removeItem("adminUser");
+      router.push("/");
+      return;
+    }
+
+    // 카카오 로그아웃
+    if (kakaoUser) {
+      localStorage.removeItem("isKakaoLoggedIn");
+      localStorage.removeItem("kakaoUser");
       router.push("/");
       return;
     }
@@ -669,7 +695,13 @@ export default function DashboardPage() {
     );
   }
 
-  const displayEmail = isAdminUser ? `${adminInfo?.id} (관리자)` : demoMode ? "demo@trainermilestone.com" : user?.email;
+  const displayEmail = isAdminUser
+    ? `${adminInfo?.id} (관리자)`
+    : kakaoUser
+      ? kakaoUser.nickname || kakaoUser.email || "카카오 사용자"
+      : demoMode
+        ? "demo@trainermilestone.com"
+        : user?.email;
 
   return (
     <div className="min-h-screen flex flex-col bg-muted/30">
@@ -680,15 +712,28 @@ export default function DashboardPage() {
           </Link>
           <div className="flex items-center gap-4">
             {isAdminUser && (
-              <Button
-                variant={editMode ? "default" : "outline"}
-                size="sm"
-                onClick={() => setEditMode(!editMode)}
-                className="text-xs"
-              >
-                <Settings className="w-3 h-3 mr-1" />
-                {editMode ? "편집 완료" : "편집 모드"}
-              </Button>
+              <>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className="text-xs"
+                  asChild
+                >
+                  <Link href="/dashboard/admin/applications">
+                    <Users className="w-3 h-3 mr-1" />
+                    가입 신청
+                  </Link>
+                </Button>
+                <Button
+                  variant={editMode ? "default" : "outline"}
+                  size="sm"
+                  onClick={() => setEditMode(!editMode)}
+                  className="text-xs"
+                >
+                  <Settings className="w-3 h-3 mr-1" />
+                  {editMode ? "편집 완료" : "편집 모드"}
+                </Button>
+              </>
             )}
             <span className="text-sm text-muted-foreground hidden sm:block">
               {displayEmail}

@@ -14,6 +14,7 @@ import {
   Loader2,
   CheckCircle2,
 } from "lucide-react";
+import { createClient } from "@/lib/supabase/client";
 
 interface JoinFormData {
   name: string;
@@ -28,6 +29,7 @@ interface JoinFormData {
 export default function CartelJoinPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [error, setError] = useState("");
   const [formData, setFormData] = useState<JoinFormData>({
     name: "",
     phone: "",
@@ -41,12 +43,38 @@ export default function CartelJoinPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setError("");
 
-    // 실제로는 API 호출
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    try {
+      const supabase = createClient();
 
-    setIsSubmitting(false);
-    setIsSubmitted(true);
+      const { error: insertError } = await supabase
+        .from("cartel_applications")
+        .insert({
+          name: formData.name,
+          phone: formData.phone,
+          blog_url: formData.blogUrl,
+          introduction: formData.introduction,
+          reason: formData.reason || null,
+          referral_source: formData.referralSource || null,
+          referrer: formData.referrer || null,
+          status: "pending",
+        });
+
+      if (insertError) {
+        console.error("Failed to submit application:", insertError);
+        setError("신청 중 오류가 발생했습니다. 다시 시도해주세요.");
+        setIsSubmitting(false);
+        return;
+      }
+
+      setIsSubmitted(true);
+    } catch (err) {
+      console.error("Failed to submit application:", err);
+      setError("신청 중 오류가 발생했습니다. 다시 시도해주세요.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   if (isSubmitted) {
@@ -128,9 +156,15 @@ export default function CartelJoinPage() {
             </div>
             <h1 className="text-2xl font-bold mb-2">블로그 카르텔 가입 신청</h1>
             <p className="text-muted-foreground">
-              피트니스 전문가들의 블로그 품앗이 네트워크에 참여하세요
+              피트니스 전문가들의 블로그 품앗이 네트워크에 참가하세요
             </p>
           </div>
+
+          {error && (
+            <div className="mb-6 p-4 bg-destructive/10 text-destructive rounded-lg text-sm">
+              {error}
+            </div>
+          )}
 
           {/* 가입 양식 */}
           <form onSubmit={handleSubmit} className="space-y-6">
@@ -220,15 +254,14 @@ export default function CartelJoinPage() {
               </div>
             </div>
 
-            <div className="bg-muted/50 rounded-xl p-4">
-              <h3 className="font-medium text-sm mb-2">신청 안내</h3>
-              <ul className="text-sm text-muted-foreground space-y-1">
-                <li>• 가입 승인까지 시간이 소요될 수 있습니다</li>
-                <li>• 블로그 활동이 없거나 부적절한 경우 거절될 수 있습니다</li>
-                <li>• 승인 후 카르텔 챌린지에 참여하실 수 있습니다</li>
-              </ul>
+            {/* 안내 사항 */}
+            <div className="bg-amber-50/10 border border-amber-200 rounded-xl p-4">
+              <p className="text-sm text-amber-800">
+                ▋ 가입 신청 후 카르텔 운영자의 승인을 거쳐야 합니다. 승인은 1-3일 내로 완료 예정입니다.
+              </p>
             </div>
 
+            {/* 제출 버튼 */}
             <div className="flex gap-3">
               <Button
                 type="button"

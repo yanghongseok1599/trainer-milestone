@@ -1,166 +1,89 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Check, Zap, Clock, TrendingUp, Users, Star } from "lucide-react";
+import { ArrowRight, PenLine, ImagePlus, Users } from "lucide-react";
 
 const beforeAfter = [
+  { before: "블로그 3시간", after: "10분" },
+  { before: "카드뉴스 2시간", after: "3분" },
+  { before: "서로이웃 2시간", after: "자동" },
+];
+
+const features = [
   {
-    before: "블로그 1개 3시간",
-    after: "10분",
-    icon: Clock,
+    icon: PenLine,
+    title: "AI 블로그 글쓰기",
+    desc: "PT 전문 용어가 자연스럽게 녹아든 SEO 최적화 글을 10분 만에",
   },
   {
-    before: "카드뉴스 2시간",
-    after: "3분",
-    icon: Zap,
+    icon: ImagePlus,
+    title: "비포애프터 자동 생성",
+    desc: "회원 변화 비교 이미지를 전문 템플릿으로 클릭 한 번에",
   },
   {
-    before: "서로이웃 100명 2시간",
-    after: "자동",
     icon: Users,
-  },
-  {
-    before: "상위노출 0건",
-    after: "평균 5건/월",
-    icon: TrendingUp,
-  },
-];
-
-const fitnessFeatures = [
-  "PT/필라테스/요가 전문 용어 10만개+ 학습",
-  "네이버 블로그 SEO 알고리즘 실시간 반영",
-  "비포애프터 이미지 1클릭 자동 생성",
-  "서로이웃 신청/수락 24시간 자동화",
-  "황금 키워드 실시간 발굴 시스템",
-  "경쟁 센터 마케팅 전략 분석",
-];
-
-const stats = [
-  {
-    number: "347",
-    unit: "%",
-    label: "평균 신규문의 증가율",
-    detail: "사용 3개월 후 측정",
-  },
-  {
-    number: "15",
-    unit: "시간",
-    label: "주당 절약 시간",
-    detail: "마케팅 업무 자동화",
-  },
-  {
-    number: "1,247",
-    unit: "명",
-    label: "현재 사용 중",
-    detail: "피트니스 전문가",
-  },
-  {
-    number: "4.9",
-    unit: "/5",
-    label: "사용자 만족도",
-    detail: "1,000+ 리뷰 기준",
+    title: "서로이웃 자동화",
+    desc: "피트니스 블로거 자동 탐색, 신청, 수락까지 24시간 자동",
   },
 ];
 
 export function Solution() {
   return (
-    <section className="py-16 sm:py-24 md:py-32 bg-foreground text-background">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+    <section className="py-20 sm:py-28">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-8 sm:mb-12 md:mb-16"
+          className="text-center mb-12"
         >
-          <div className="inline-flex items-center gap-1.5 text-primary mb-3">
-            <Star className="w-4 h-4 fill-primary" />
-            <span className="text-xs sm:text-sm font-medium">해결책</span>
-          </div>
-          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold tracking-tight mb-3 sm:mb-4">
-            <span className="text-primary">트레이너 마일스톤</span>으로
-            <br />
-            마케팅 자동화하세요
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight mb-4">
+            <span className="text-primary">트레이너 마일스톤</span>으로 해결하세요
           </h2>
-          <p className="text-[13px] sm:text-sm md:text-base text-background/60 max-w-xs sm:max-w-2xl mx-auto leading-relaxed">
-            피트니스 업계 <span className="text-primary font-semibold">10년 경력 전문가</span>들이
-            <br />
-            직접 만든 <span className="text-primary font-semibold">피트니스 전용 AI</span>입니다.
+          <p className="text-muted-foreground">
+            피트니스 전문가 10년 경력자들이 만든 AI 마케팅 도구
           </p>
         </motion.div>
 
-        {/* Before/After Comparison */}
+        {/* Before/After */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.1 }}
-          className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 mb-10 sm:mb-16"
+          className="grid grid-cols-3 gap-4 mb-16"
         >
           {beforeAfter.map((item, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="text-center p-3 sm:p-5 rounded-xl bg-background/5 border border-background/10"
-            >
-              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-2 sm:mb-3">
-                <item.icon className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
+            <div key={index} className="text-center p-4 rounded-xl bg-primary/5 border border-primary/20">
+              <p className="text-xs text-muted-foreground line-through mb-1">{item.before}</p>
+              <div className="flex items-center justify-center gap-2">
+                <ArrowRight className="w-4 h-4 text-primary" />
+                <p className="text-2xl font-bold text-primary">{item.after}</p>
               </div>
-              <p className="text-[11px] sm:text-xs text-background/40 line-through mb-1">{item.before}</p>
-              <p className="text-lg sm:text-xl md:text-2xl font-bold text-primary">{item.after}</p>
-            </motion.div>
-          ))}
-        </motion.div>
-
-        {/* Features Grid */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 mb-10 sm:mb-16"
-        >
-          {fitnessFeatures.map((feature, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="flex items-center gap-2.5 p-3 sm:p-4 rounded-xl bg-background/5 border border-background/10"
-            >
-              <div className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0">
-                <Check className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-primary" />
-              </div>
-              <span className="text-[13px] sm:text-sm">{feature}</span>
-            </motion.div>
-          ))}
-        </motion.div>
-
-        {/* Stats */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 pt-8 sm:pt-12 border-t border-background/10"
-        >
-          {stats.map((item, index) => (
-            <div key={index} className="text-center">
-              <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-0.5 sm:mb-1">
-                <span className="text-primary">{item.number}</span>
-                <span className="text-base sm:text-lg md:text-xl lg:text-2xl text-background/40">
-                  {item.unit}
-                </span>
-              </div>
-              <p className="text-[11px] sm:text-xs md:text-sm font-medium mb-0.5">{item.label}</p>
-              <p className="text-[10px] sm:text-xs text-background/40">{item.detail}</p>
             </div>
           ))}
         </motion.div>
+
+        {/* Features */}
+        <div className="space-y-4">
+          {features.map((item, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
+              className="flex items-start gap-4 p-5 rounded-xl bg-muted/50 border"
+            >
+              <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                <item.icon className="w-6 h-6 text-primary" />
+              </div>
+              <div>
+                <h3 className="font-semibold text-lg mb-1">{item.title}</h3>
+                <p className="text-sm text-muted-foreground">{item.desc}</p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );

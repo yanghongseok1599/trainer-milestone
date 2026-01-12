@@ -218,14 +218,9 @@ export default function CartelIntroPage() {
             <p className="text-muted-foreground mb-6">
               카르텔에 가입하고 블로그 성장을 경험해보세요.
             </p>
-            <div className="flex gap-3 justify-center">
-              <Button variant="outline" className="rounded-full" asChild>
-                <Link href="/dashboard/cartel">카르텔 둘러보기</Link>
-              </Button>
-              <Button className="rounded-full" asChild>
-                <Link href="/dashboard/cartel/create">카르텔 만들기</Link>
-              </Button>
-            </div>
+            <Button className="rounded-full" asChild>
+              <Link href="/dashboard/cartel">카르텔 가입 신청하기</Link>
+            </Button>
           </div>
         </motion.div>
       </main>
