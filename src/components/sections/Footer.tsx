@@ -6,8 +6,8 @@ const footerLinks = [
   { label: "기능", href: "#features" },
   { label: "후기", href: "#testimonials" },
   { label: "FAQ", href: "#faq" },
-  { label: "이용약관", href: "#" },
-  { label: "개인정보처리방침", href: "#" },
+  { label: "이용약관", href: "/terms" },
+  { label: "개인정보처리방침", href: "/privacy" },
 ];
 
 export function Footer() {
@@ -37,8 +37,20 @@ export function Footer() {
           </nav>
         </div>
 
-        <div className="mt-8 sm:mt-12 pt-6 sm:pt-8 border-t text-center">
-          <p className="text-[10px] sm:text-xs text-muted-foreground">
+        {/* 사업자 정보 */}
+        <div className="mt-8 sm:mt-12 pt-6 sm:pt-8 border-t">
+          <div className="text-center space-y-2">
+            <p className="text-[10px] sm:text-xs text-muted-foreground">
+              상호 : 헤븐데일리 ㅣ 대표 : 김지민 ㅣ 사업자등록번호 : 506-54-000971
+            </p>
+            <p className="text-[10px] sm:text-xs text-muted-foreground">
+              소재지 : 강원특별자치도 동해시 해안로 449
+            </p>
+            <p className="text-[10px] sm:text-xs text-muted-foreground">
+              개인정보관리책임자 : 김지민 ㅣ 문의 : ccv5@naver.com
+            </p>
+          </div>
+          <p className="text-[10px] sm:text-xs text-muted-foreground text-center mt-4">
             © 2024 트레이너 마일스톤. All rights reserved.
           </p>
         </div>

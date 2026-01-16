@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
-<url><loc>https://trainermilestone.com/apple-icon.png</loc><lastmod>2026-01-12T09:34:44.025Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://trainermilestone.com/checkout/fail</loc><lastmod>2026-01-12T09:34:44.028Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://trainermilestone.com/checkout</loc><lastmod>2026-01-12T09:34:44.028Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://trainermilestone.com/checkout/success</loc><lastmod>2026-01-12T09:34:44.028Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://trainermilestone.com/dashboard</loc><lastmod>2026-01-12T09:34:44.028Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://trainermilestone.com/forgot-password</loc><lastmod>2026-01-12T09:34:44.028Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://trainermilestone.com/icon.png</loc><lastmod>2026-01-12T09:34:44.028Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://trainermilestone.com/login</loc><lastmod>2026-01-12T09:34:44.028Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://trainermilestone.com</loc><lastmod>2026-01-12T09:34:44.028Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://trainermilestone.com/pricing</loc><lastmod>2026-01-12T09:34:44.028Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://trainermilestone.com/signup</loc><lastmod>2026-01-12T09:34:44.028Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://trainermilestone.com/apple-icon.png</loc><lastmod>2026-01-12T15:34:24.936Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://trainermilestone.com/checkout/fail</loc><lastmod>2026-01-12T15:34:24.939Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://trainermilestone.com/checkout</loc><lastmod>2026-01-12T15:34:24.939Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://trainermilestone.com/checkout/success</loc><lastmod>2026-01-12T15:34:24.939Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://trainermilestone.com/dashboard</loc><lastmod>2026-01-12T15:34:24.939Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://trainermilestone.com/forgot-password</loc><lastmod>2026-01-12T15:34:24.939Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://trainermilestone.com/icon.png</loc><lastmod>2026-01-12T15:34:24.939Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://trainermilestone.com/login</loc><lastmod>2026-01-12T15:34:24.939Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://trainermilestone.com</loc><lastmod>2026-01-12T15:34:24.939Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://trainermilestone.com/pricing</loc><lastmod>2026-01-12T15:34:24.939Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://trainermilestone.com/privacy</loc><lastmod>2026-01-12T15:34:24.939Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://trainermilestone.com/signup</loc><lastmod>2026-01-12T15:34:24.939Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://trainermilestone.com/terms</loc><lastmod>2026-01-12T15:34:24.939Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
 </urlset>
