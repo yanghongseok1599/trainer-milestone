@@ -1,0 +1,15 @@
+{
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.trainer-milestone.com"
+        }
+      ],
+      "destination": "https://trainer-milestone.com/:path*",
+      "permanent": true
+    }
+  ]
+}
