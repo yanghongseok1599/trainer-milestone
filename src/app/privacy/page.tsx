@@ -97,7 +97,7 @@ export default function PrivacyPage() {
               <li>회원 탈퇴</li>
             </ul>
             <p className="mt-3">
-              위 권리 행사는 서비스 내 설정 또는 이메일(contact@trainermilestone.com)을 통해 가능합니다.
+              위 권리 행사는 서비스 내 설정 또는 이메일(info@trainer_milestone.com)을 통해 가능합니다.
             </p>
           </section>
 
@@ -125,7 +125,7 @@ export default function PrivacyPage() {
             <h2 className="text-xl font-semibold text-foreground mb-4">9. 개인정보 보호책임자</h2>
             <ul className="list-none space-y-1 mt-3">
               <li><strong>담당부서:</strong> 고객지원팀</li>
-              <li><strong>이메일:</strong> contact@trainermilestone.com</li>
+              <li><strong>이메일:</strong> info@trainer_milestone.com</li>
             </ul>
           </section>
 

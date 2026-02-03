@@ -227,7 +227,7 @@ export default function PricingPage() {
                     disabled={plan.disabled}
                     onClick={() => {
                       if (plan.isEnterprise) {
-                        window.location.href = "mailto:contact@trainermilestone.com";
+                        window.location.href = "mailto:info@trainer_milestone.com";
                       } else if (price !== null && price > 0) {
                         handleSelectPlan(plan.id, price);
                       }

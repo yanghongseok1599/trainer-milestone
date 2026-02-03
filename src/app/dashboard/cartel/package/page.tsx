@@ -43,8 +43,8 @@ const packages = [
   {
     id: "pro",
     name: "프로",
-    price: "₩29,000",
-    priceValue: 29000,
+    price: "₩149,000",
+    priceValue: 149000,
     period: "/월",
     description: "활발한 블로그 활동을 위한 플랜",
     features: [
@@ -62,8 +62,8 @@ const packages = [
   {
     id: "premium",
     name: "프리미엄",
-    price: "₩59,000",
-    priceValue: 59000,
+    price: "₩299,000",
+    priceValue: 299000,
     period: "/월",
     description: "전문가를 위한 올인원 패키지",
     features: [
@@ -73,7 +73,7 @@ const packages = [
       "3배 포인트 적립",
       "미션 최상위 노출",
       "AI 댓글 자동 생성",
-      "실시간 카카오톡 알림",
+      "실시간 톡 알림",
       "1:1 전담 매니저",
       "카르텔 생성 무제한",
     ],
@@ -129,7 +129,7 @@ const banners = [
   {
     id: "notification",
     title: "실시간 알림 서비스",
-    description: "새 미션, 댓글 알림을 카카오톡으로 받아보세요",
+    description: "새 미션, 댓글 알림을 톡으로 받아보세요",
     icon: Bell,
     color: "from-yellow-500 to-orange-500",
     href: "/dashboard",
@@ -359,7 +359,7 @@ export default function CartelPackagePage() {
               </Button>
               <Button
                 className="rounded-full"
-                onClick={() => handleSelectPackage("pro", 29000, "프로")}
+                onClick={() => handleSelectPackage("pro", 149000, "프로")}
               >
                 <Zap className="w-4 h-4 mr-2" />
                 프로 시작하기

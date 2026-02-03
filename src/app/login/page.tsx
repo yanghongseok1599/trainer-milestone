@@ -15,7 +15,6 @@ export default function LoginPage() {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
   const [isGoogleLoading, setIsGoogleLoading] = useState(false);
-  const [isKakaoLoading, setIsKakaoLoading] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -87,17 +86,6 @@ export default function LoginPage() {
     }
   };
 
-  const handleKakaoLogin = () => {
-    setError("");
-    setIsKakaoLoading(true);
-
-    const KAKAO_REST_API_KEY = process.env.NEXT_PUBLIC_KAKAO_REST_API_KEY;
-    const REDIRECT_URI = process.env.NEXT_PUBLIC_KAKAO_REDIRECT_URI;
-
-    const kakaoAuthUrl = `https://kauth.kakao.com/oauth/authorize?client_id=${KAKAO_REST_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code`;
-
-    window.location.href = kakaoAuthUrl;
-  };
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -135,26 +123,6 @@ export default function LoginPage() {
 
           {/* 소셜 로그인 버튼들 */}
           <div className="space-y-3 mb-6">
-            {/* 카카오 로그인 */}
-            <Button
-              type="button"
-              variant="outline"
-              className="w-full h-11 rounded-lg bg-[#FEE500] hover:bg-[#FEE500]/90 border-[#FEE500] text-[#000000]/85"
-              onClick={handleKakaoLogin}
-              disabled={isKakaoLoading}
-            >
-              {isKakaoLoading ? (
-                <Loader2 className="w-4 h-4 animate-spin" />
-              ) : (
-                <>
-                  <svg className="w-5 h-5 mr-2" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12 3C6.48 3 2 6.48 2 10.5c0 2.55 1.69 4.79 4.22 6.08-.18.65-.72 2.34-.82 2.7-.13.45.16.45.34.33.14-.1 2.19-1.49 3.08-2.1.38.05.77.08 1.18.08 5.52 0 10-3.02 10-6.5S17.52 3 12 3z"/>
-                  </svg>
-                  카카오로 계속하기
-                </>
-              )}
-            </Button>
-
             {/* 구글 로그인 */}
             <Button
               type="button"

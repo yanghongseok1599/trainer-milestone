@@ -26,7 +26,7 @@ export default function TermsPage() {
             본 약관은 트레이너 마일스톤(이하 &quot;회사&quot;)이 제공하는 서비스의 이용과 관련하여
             회사와 이용자 간의 권리, 의무 및 책임사항을 규정합니다.
           </p>
-          <p>시행일자: 2024년 1월 1일</p>
+          <p>시행일자: 2025년 1월 1일</p>
 
           <section>
             <h2 className="text-xl font-semibold text-foreground mb-4">제1조 (목적)</h2>
@@ -86,6 +86,7 @@ export default function TermsPage() {
             <h2 className="text-xl font-semibold text-foreground mb-4">제6조 (서비스 이용료)</h2>
             <ul className="list-decimal pl-6 space-y-2">
               <li>서비스는 무료 및 유료로 제공되며, 유료 서비스의 이용요금은 서비스 내 가격표에 게시됩니다.</li>
+              <li>유료 서비스의 제공기간은 월간 구독(결제일로부터 1개월)을 기본으로 하며, 별도의 해지 요청이 없는 한 자동 갱신됩니다.</li>
               <li>회사는 유료 서비스 이용요금을 변경할 수 있으며, 변경 시 최소 7일 전에 공지합니다.</li>
               <li>이용자가 결제한 이용요금에 대한 환불은 회사의 환불 정책에 따릅니다.</li>
             </ul>
@@ -97,7 +98,7 @@ export default function TermsPage() {
               <li>결제 후 7일 이내에 서비스를 이용하지 않은 경우 전액 환불이 가능합니다.</li>
               <li>서비스 이용 후에는 이용 기간에 비례하여 환불 금액이 산정됩니다.</li>
               <li>무료 체험 기간 중에는 언제든지 해지가 가능하며, 요금이 청구되지 않습니다.</li>
-              <li>환불 요청은 고객센터(contact@trainermilestone.com)를 통해 가능합니다.</li>
+              <li>환불 요청은 고객센터(info@trainer_milestone.com)를 통해 가능합니다.</li>
             </ul>
           </section>
 
@@ -168,8 +169,8 @@ export default function TermsPage() {
           </section>
 
           <p className="pt-8 border-t">
-            <strong>공고일자:</strong> 2024년 1월 1일<br />
-            <strong>시행일자:</strong> 2024년 1월 1일
+            <strong>공고일자:</strong> 2025년 1월 1일<br />
+            <strong>시행일자:</strong> 2025년 1월 1일
           </p>
         </div>
       </main>
