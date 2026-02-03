@@ -77,7 +77,9 @@ export const metadata: Metadata = {
   category: "technology",
   verification: {
     // google: "구글서치콘솔인증코드",
-    // naver: "네이버서치어드바이저인증코드",
+    other: {
+      "naver-site-verification": "b422bdbc4e23d52d5e8ac87d6d27bc8eeac4c16d",
+    },
   },
 };
 
