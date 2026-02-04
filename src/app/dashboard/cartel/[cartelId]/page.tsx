@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import { motion } from "framer-motion";
@@ -21,7 +21,12 @@ import {
   Settings,
   UserPlus,
   Trophy,
+  ShieldAlert,
+  ArrowLeft,
+  FileEdit,
 } from "lucide-react";
+import { createClient } from "@/lib/supabase/client";
+import { auth, onAuthStateChanged } from "@/lib/firebase/client";
 
 // Mock data - 실제로는 Supabase에서 가져옴
 const cartelData = {
@@ -107,6 +112,75 @@ export default function CartelDetailPage() {
   const params = useParams();
   const [activeTab, setActiveTab] = useState("missions");
   const [completingMission, setCompletingMission] = useState<string | null>(null);
+  const [isApproved, setIsApproved] = useState<boolean | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, async (user) => {
+      if (!user?.email) {
+        setIsApproved(false);
+        setIsLoading(false);
+        return;
+      }
+      try {
+        const supabase = createClient();
+        const { data } = await supabase
+          .from("cartel_applications")
+          .select("status")
+          .eq("status", "approved")
+          .limit(1);
+        setIsApproved(data && data.length > 0);
+      } catch {
+        setIsApproved(false);
+      }
+      setIsLoading(false);
+    });
+    return () => unsubscribe();
+  }, []);
+
+  if (isLoading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-muted/30">
+        <Clock className="w-6 h-6 animate-spin text-muted-foreground" />
+      </div>
+    );
+  }
+
+  if (!isApproved) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-muted/30 px-4">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.3 }}
+          className="bg-background border rounded-2xl p-8 max-w-md w-full text-center shadow-lg"
+        >
+          <div className="w-16 h-16 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-5">
+            <ShieldAlert className="w-8 h-8 text-amber-600" />
+          </div>
+          <h2 className="text-xl font-bold mb-2">가입 승인 후 입장 가능합니다</h2>
+          <p className="text-sm text-muted-foreground mb-6">
+            카르텔 챌린지는 관리자 승인이 완료된 회원만 이용할 수 있습니다.<br />
+            아직 가입 신청을 하지 않으셨다면 먼저 신청해주세요.
+          </p>
+          <div className="flex flex-col gap-3">
+            <Button className="w-full rounded-full" asChild>
+              <Link href="/dashboard/cartel">
+                <FileEdit className="w-4 h-4 mr-2" />
+                카르텔 가입 신청하기
+              </Link>
+            </Button>
+            <Button variant="outline" className="w-full rounded-full" asChild>
+              <Link href="/dashboard">
+                <ArrowLeft className="w-4 h-4 mr-2" />
+                대시보드로 돌아가기
+              </Link>
+            </Button>
+          </div>
+        </motion.div>
+      </div>
+    );
+  }
 
   const handleCompleteMission = async (missionId: string) => {
     setCompletingMission(missionId);
