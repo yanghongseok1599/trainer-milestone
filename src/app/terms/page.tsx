@@ -93,12 +93,27 @@ export default function TermsPage() {
           </section>
 
           <section>
-            <h2 className="text-xl font-semibold text-foreground mb-4">제7조 (환불 정책)</h2>
+            <h2 className="text-xl font-semibold text-foreground mb-4">제7조 (결제 취소 및 환불)</h2>
             <ul className="list-decimal pl-6 space-y-2">
-              <li>결제 후 7일 이내에 서비스를 이용하지 않은 경우 전액 환불이 가능합니다.</li>
-              <li>서비스 이용 후에는 이용 기간에 비례하여 환불 금액이 산정됩니다.</li>
+              <li>회사와 구매에 관한 계약을 체결한 회원은 아래와 같이 결제에 대한 취소 및 환불을 요구할 수 있습니다.
+                <ul className="list-disc pl-6 mt-2 space-y-1">
+                  <li>이용계약 신청 후, 서비스가 제공되지 않은 경우 결제 취소가 가능합니다.</li>
+                  <li>결제 후 7일 이내에 서비스를 이용하지 않은 경우 전액 환불이 가능합니다.</li>
+                  <li>결제시간으로부터 24시간 이내 해지 요청 시 전액 환불됩니다.</li>
+                </ul>
+              </li>
+              <li>정기결제(월간 구독) 회원의 환불 기준:
+                <ul className="list-disc pl-6 mt-2 space-y-1">
+                  <li>환불은 서비스를 이용한 일수를 제외하고 일할 계산으로 진행됩니다.</li>
+                  <li>월 기준은 30일이며, 일할 금액은 월 이용료를 30으로 나눈 금액입니다.</li>
+                  <li>결제시간으로부터 24시간 이후 ~ 15일까지는 남은 일수에 대한 일할 계산으로 환불 처리됩니다.</li>
+                  <li>결제시간으로부터 15일 이후에는 환불이 불가합니다.</li>
+                </ul>
+              </li>
+              <li>회사의 귀책사유로 결제 오류가 발생한 경우 전액 환불됩니다.</li>
+              <li>회사의 귀책사유로 서비스가 중단되는 경우 잔여 이용기간에 대해 환불됩니다.</li>
               <li>무료 체험 기간 중에는 언제든지 해지가 가능하며, 요금이 청구되지 않습니다.</li>
-              <li>환불 요청은 고객센터(info@trainer_milestone.com)를 통해 가능합니다.</li>
+              <li>환불 요청은 고객센터(info@trainer_milestone.com) 또는 전화(010-7545-1599)를 통해 가능합니다.</li>
             </ul>
           </section>
 
