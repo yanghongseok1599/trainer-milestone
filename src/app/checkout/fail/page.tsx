@@ -90,7 +90,7 @@ function FailContent() {
 
         <p className="text-xs text-muted-foreground mt-6">
           문제가 계속되면{" "}
-          <a href="mailto:support@trainermilestone.com" className="underline">
+          <a href="mailto:info@trainer_milestone.com" className="underline">
             고객센터
           </a>
           로 문의해주세요.

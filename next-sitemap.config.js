@@ -1,6 +1,6 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: process.env.SITE_URL || "https://trainermilestone.com",
+  siteUrl: process.env.SITE_URL || "https://trainer-milestone.com",
   generateRobotsTxt: true,
   generateIndexSitemap: false,
   exclude: ["/api/*", "/dashboard/*", "/auth/*"],

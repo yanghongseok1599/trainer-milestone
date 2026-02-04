@@ -700,7 +700,7 @@ export default function DashboardPage() {
     : kakaoUser
       ? kakaoUser.nickname || kakaoUser.email || "카카오 사용자"
       : demoMode
-        ? "demo@trainermilestone.com"
+        ? "demo@trainer-milestone.com"
         : user?.email;
 
   return (

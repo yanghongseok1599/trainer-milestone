@@ -7,7 +7,7 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const siteUrl = "https://trainermilestone.com"; // 배포 후 실제 도메인으로 교체
+const siteUrl = "https://trainer-milestone.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
